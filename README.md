@@ -1,11 +1,11 @@
 <h1 align="center">Hi 👋, I'm Muhammad Nasri</h1>
-<h3 align="center">Nothing special about me , just love to learning new thing .</h3>
+<h3 align="center">Nothing special about me , just love to learn new thing .</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=untadotmy&label=Profile%20views&color=0e75b6&style=flat" alt="untadotmy" /> </p>
 
 - 🔭 I’m currently working on [Premmv2](https://github.com/UntaDotMy/premmv2)
 
-- 📫 How to reach me **t.me/UntaDotMy**
+- 📫 How to reach me **https://t.me/UntaDotMy**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
