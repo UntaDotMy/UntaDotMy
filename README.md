@@ -3,8 +3,6 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=untadotmy&label=Profile%20views&color=0e75b6&style=flat" alt="untadotmy" /> </p>
 
-- 🔭 I’m currently working on [Premmv2](https://github.com/UntaDotMy/premmv2)
-
 - 📫 How to reach me **https://t.me/UntaDotMy**
 
 <p align="left">
