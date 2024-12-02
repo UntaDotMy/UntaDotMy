@@ -6,7 +6,11 @@
 </p>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=untadotmy&theme=dark" alt="GitHub Streak" />
+  <img src="https://github-readme-stats.vercel.app/api?username=untadotmy&show_icons=true&theme=radical" alt="GitHub Stats" />
+</div>
+
+<div align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=untadotmy&theme=radical" alt="GitHub Streak" />
 </div>
 
 <h3 align="center">🚀 Languages and Tools</h3>
@@ -38,25 +42,19 @@
 </p>
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=untadotmy&layout=compact&theme=dark" alt="Top Languages" />
-</div>
-
-<div align="center">
-  <img src="https://activity-graph.herokuapp.com/graph?username=untadotmy&theme=github" alt="GitHub Contribution Graph" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=untadotmy&layout=compact&theme=radical" alt="Top Languages" />
 </div>
 
 <h3 align="center">🐍 Snake Contributions</h3>
-<div align="center">
-  <img src="https://raw.githubusercontent.com/untadotmy/untadotmy/output/github-contribution-grid-snake.svg" alt="Snake Animation" />
-</div>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/untadotmy/untadotmy/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/untadotmy/untadotmy/output/github-contribution-grid-snake.svg" />
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/untadotmy/untadotmy/output/github-contribution-grid-snake.svg" />
+</picture>
 
 <h3 align="center">📫 Connect with Me</h3>
 <p align="center">
   <a href="https://t.me/UntaDotMy" target="_blank">
     <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/>
   </a>
-</p>
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer"/>
 </p>
