@@ -16,7 +16,7 @@
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=untadotmy&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" height="180" alt="GitHub Stats" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=untadotmy&theme=tokyonight&hide_border=true" height="180" alt="GitHub Streak" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=untadotmy&theme=tokyonight&hide_border=true&date_format=M%20j%5B%2C%20Y%5D&ring=36BCF7&fire=36BCF7&currStreakLabel=36BCF7" height="180" alt="GitHub Streak" />
 </div>
 
 <div align="center">
