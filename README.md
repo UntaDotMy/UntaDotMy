@@ -24,7 +24,12 @@
 
 <!-- GitHub Activity Graph -->
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=untadotmy&bg_color=0D1117&color=58A6FF&line=58A6FF&point=1F6FEB&area=true&hide_border=true" alt="Activity Graph" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=untadotmy&theme=github_dark" alt="Activity Graph" />
+</div>
+
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=untadotmy&theme=github_dark" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=untadotmy&theme=github_dark" />
 </div>
 
 <hr />
