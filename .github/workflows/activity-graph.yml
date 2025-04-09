@@ -1,0 +1,29 @@
+name: Generate Activity Graph
+
+on:
+  schedule:
+    - cron: "0 */3 * * *"  # Run every 3 hours
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Generate GitHub Activity Graph
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Activity Graph
+        uses: Ashutosh00710/github-readme-activity-graph@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ github.repository_owner }}
+          bg-color: '0D1117'
+          color: '58A6FF'
+          line: '58A6FF'
+          point: '1F6FEB'
+          area: true
+          hide_border: true 

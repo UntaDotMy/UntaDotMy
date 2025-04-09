@@ -1,60 +1,87 @@
-<h1 align="center">Hi 👋, I'm Muhammad Nasri</h1>
-<h3 align="center">A passionate learner exploring the world of technology</h3>
+<div align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=500&color=36BCF7&center=true&vCenter=true&random=false&width=500&lines=Hi+%F0%9F%91%8B%2C+I'm+Muhammad+Nasri;Software+Developer;DevOps+Enthusiast;Linux+Lover;Continuous+Learner" alt="Typing SVG" />
+</div>
+
+<h3 align="center">A passionate technologist exploring innovative solutions</h3>
 
 <p align="center">
-  <img src="https://komarev.com/ghpvc/?username=untadotmy&label=Profile%20views&color=0e75b6&style=flat" alt="Profile Views" />
+  <img src="https://komarev.com/ghpvc/?username=untadotmy&label=Profile%20views&color=36BCF7&style=flat" alt="Profile Views" />
+  <img src="https://img.shields.io/github/followers/untadotmy?label=Followers&style=social" alt="GitHub Followers" />
+  <img src="https://img.shields.io/badge/Contributions-Welcome-brightgreen" alt="Contributions Welcome" />
 </p>
 
+<hr />
+
+## 📊 GitHub Stats & Activity
+
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=untadotmy&show_icons=true&theme=radical" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api?username=untadotmy&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" height="180" alt="GitHub Stats" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=untadotmy&theme=tokyonight&hide_border=true" height="180" alt="GitHub Streak" />
 </div>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=untadotmy&theme=radical" alt="GitHub Streak" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=untadotmy&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
 </div>
 
-<h3 align="center">🚀 Languages and Tools</h3>
+<!-- GitHub Activity Graph -->
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=untadotmy&bg_color=0D1117&color=58A6FF&line=58A6FF&point=1F6FEB&area=true&hide_border=true" alt="Activity Graph" />
+</div>
+
+<hr />
+
+## 🚀 Tech Stack
+
 <p align="center">
   <a href="https://www.arduino.cc/" target="_blank" rel="noreferrer">
-    <img src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg" alt="arduino" width="40" height="40"/>
+    <img src="https://skillicons.dev/icons?i=arduino" alt="arduino" width="45" height="45"/>
   </a>
   <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="40" height="40"/>
+    <img src="https://skillicons.dev/icons?i=bash" alt="bash" width="45" height="45"/>
   </a>
   <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/>
+    <img src="https://skillicons.dev/icons?i=c" alt="c" width="45" height="45"/>
   </a>
   <a href="https://www.w3schools.com/cpp/" target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/>
+    <img src="https://skillicons.dev/icons?i=cpp" alt="cpp" width="45" height="45"/>
   </a>
   <a href="https://cloud.google.com" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="gcp" width="40" height="40"/>
+    <img src="https://skillicons.dev/icons?i=gcp" alt="gcp" width="45" height="45"/>
   </a>
   <a href="https://git-scm.com/" target="_blank" rel="noreferrer">
-    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/>
+    <img src="https://skillicons.dev/icons?i=git" alt="git" width="45" height="45"/>
   </a>
   <a href="https://www.linux.org/" target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="linux" width="40" height="40"/>
+    <img src="https://skillicons.dev/icons?i=linux" alt="linux" width="45" height="45"/>
   </a>
   <a href="https://www.nginx.com" target="_blank" rel="noreferrer">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nginx/nginx-original.svg" alt="nginx" width="40" height="40"/>
+    <img src="https://skillicons.dev/icons?i=nginx" alt="nginx" width="45" height="45"/>
   </a>
 </p>
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=untadotmy&layout=compact&theme=radical" alt="Top Languages" />
-</div>
+<hr />
 
-<h3 align="center">🐍 Snake Contributions</h3>
+## 🐍 Contribution Snake
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/untadotmy/untadotmy/output/github-contribution-grid-snake-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/untadotmy/untadotmy/output/github-contribution-grid-snake.svg" />
   <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/untadotmy/untadotmy/output/github-contribution-grid-snake.svg" />
 </picture>
 
-<h3 align="center">📫 Connect with Me</h3>
+<hr />
+
+## 📫 Connect with Me
+
 <p align="center">
   <a href="https://t.me/UntaDotMy" target="_blank">
     <img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/>
   </a>
+  <a href="https://github.com/untadotmy" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
+  </a>
 </p>
+
+<div align="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Random Dev Quote" />
+</div>
