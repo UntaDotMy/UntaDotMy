@@ -15,12 +15,11 @@
 ## 📊 GitHub Stats & Activity
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=untadotmy&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" height="180" alt="GitHub Stats" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=untadotmy&theme=tokyonight&hide_border=true&date_format=M%20j%5B%2C%20Y%5D&ring=36BCF7&fire=36BCF7&currStreakLabel=36BCF7" height="180" alt="GitHub Streak" />
+  <img src="https://github-readme-stats.vercel.app/api?username=untadotmy&show_icons=true&theme=tokyonight&hide_border=true&count_private=true&include_all_commits=true&card_width=450" height="180" alt="GitHub Stats" />
 </div>
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=untadotmy&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=untadotmy&layout=compact&theme=tokyonight&hide_border=true&langs_count=8&card_width=450" alt="Top Languages" />
 </div>
 
 <!-- GitHub Activity Graph -->
