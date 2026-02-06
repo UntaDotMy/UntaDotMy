@@ -1,40 +1,45 @@
-name: Generate Professional Contribution Snake
+name: Generate AI Contribution Robot
 
 on:
   schedule:
-    - cron: "0 */3 * * *"  # Run every 3 hours
-  workflow_dispatch:  # Allow manual trigger
+    - cron: "43 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-contribution-robot
+  cancel-in-progress: true
 
 jobs:
   build:
-    name: Generate Snake Animation
+    name: Build AI Contribution Robot
     runs-on: ubuntu-latest
     timeout-minutes: 10
-
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      
-      - name: Generate Snake Animation
-        uses: Platane/snk/svg-only@v3
-        id: snake-gif
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg
-          snake_color: '#36BCF7'
-          color_snake_year: '#36BCF7'
-          color_dots: |
-            #161b22, #0e4429, #006d32, #26a641, #39d353
+        uses: actions/checkout@v6
 
-      - name: Push Generated Files
-        uses: crazy-max/ghaction-github-pages@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
         with:
-          target_branch: output
-          build_dir: dist
-          commit_message: "🐍 Update contribution snake animation"
+          node-version: 24
+
+      - name: Generate AI Robot SVGs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_USERNAME: ${{ github.repository_owner }}
+        run: node scripts/generate-ai-contribution-robot.js
+
+      - name: Publish to output branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: dist
+          publish_branch: output
+          force_orphan: true
+          keep_files: false
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          commit_message: "🤖 Update AI contribution robot"

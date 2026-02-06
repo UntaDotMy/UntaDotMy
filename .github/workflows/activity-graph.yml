@@ -1,26 +1,31 @@
-name: Generate Activity Graph
+name: Generate Profile Summary Cards
 
 on:
   schedule:
-    - cron: "0 */3 * * *"  # Run every 3 hours
+    - cron: "17 2 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-summary-cards
+  cancel-in-progress: true
 
 jobs:
   build:
-    name: Generate GitHub Activity Graph
+    name: Generate Summary Cards
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
+    timeout-minutes: 10
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
-      - name: Generate GitHub Activity Graph
+      - name: Generate Summary Cards
         uses: vn7n24fzkq/github-profile-summary-cards@release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           USERNAME: ${{ github.repository_owner }}
           BRANCH_NAME: main
-          UTC_OFFSET: 8 
+          UTC_OFFSET: 8
