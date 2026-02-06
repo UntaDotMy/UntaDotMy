@@ -49,10 +49,6 @@ async function main() {
   const username = process.env.PROFILE_USERNAME || process.env.GITHUB_ACTOR;
   const outputDir = process.env.OUTPUT_DIR || "dist";
 
-  if (!token) {
-    throw new Error("Missing GITHUB_TOKEN environment variable.");
-  }
-
   if (!username) {
     throw new Error("Missing PROFILE_USERNAME or GITHUB_ACTOR.");
   }
@@ -79,6 +75,28 @@ async function main() {
 }
 
 async function fetchContributionCalendar({ token, username }) {
+  const attempts = [];
+
+  if (token) {
+    try {
+      return await fetchContributionCalendarGraphQL({ token, username });
+    } catch (error) {
+      attempts.push(`GraphQL: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  } else {
+    attempts.push("GraphQL: skipped (missing GITHUB_TOKEN)");
+  }
+
+  try {
+    return await fetchContributionCalendarFromPublicCalendar({ username });
+  } catch (error) {
+    attempts.push(`Public calendar: ${error instanceof Error ? error.message : String(error)}`);
+  }
+
+  throw new Error(`Unable to fetch contribution data for "${username}". ${attempts.join(" | ")}`);
+}
+
+async function fetchContributionCalendarGraphQL({ token, username }) {
   const query = `
     query($username: String!, $from: DateTime!, $to: DateTime!) {
       user(login: $username) {
@@ -136,6 +154,66 @@ async function fetchContributionCalendar({ token, username }) {
   }
 
   return calendar;
+}
+
+async function fetchContributionCalendarFromPublicCalendar({ username }) {
+  const now = new Date();
+  const oneYearAgo = new Date(now);
+  oneYearAgo.setUTCDate(oneYearAgo.getUTCDate() - 365);
+
+  const url = new URL(`https://github.com/users/${encodeURIComponent(username)}/contributions`);
+  url.searchParams.set("from", formatDateForQuery(oneYearAgo));
+  url.searchParams.set("to", formatDateForQuery(now));
+
+  const response = await fetch(url, {
+    headers: {
+      "User-Agent": "ai-contribution-robot-generator",
+      Accept: "image/svg+xml,text/html;q=0.9,*/*;q=0.8",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error(`Contribution calendar request failed (${response.status})`);
+  }
+
+  const body = await response.text();
+  const rectPattern = /<rect\b[^>]*class="[^"]*ContributionCalendar-day[^"]*"[^>]*>/g;
+  const rectNodes = body.match(rectPattern) || [];
+  const parsedDays = [];
+
+  for (const rectNode of rectNodes) {
+    const dateMatch = rectNode.match(/\bdata-date="([^"]+)"/);
+    const countMatch = rectNode.match(/\bdata-count="(\d+)"/);
+    if (!dateMatch || !countMatch) {
+      continue;
+    }
+
+    const date = dateMatch[1];
+    const contributionCount = Number.parseInt(countMatch[1], 10);
+    const weekday = new Date(`${date}T00:00:00Z`).getUTCDay();
+
+    if (!Number.isFinite(contributionCount)) {
+      continue;
+    }
+
+    parsedDays.push({
+      date,
+      weekday,
+      contributionCount,
+    });
+  }
+
+  if (parsedDays.length === 0) {
+    throw new Error("No contribution-day nodes found in public calendar response");
+  }
+
+  parsedDays.sort((left, right) => left.date.localeCompare(right.date));
+  const weeks = groupDaysIntoWeeks(parsedDays);
+  if (weeks.length === 0) {
+    throw new Error("Failed to group public contribution calendar into weeks");
+  }
+
+  return { weeks };
 }
 
 function getGridMetrics(weekCount) {
@@ -338,6 +416,45 @@ function buildMonthLabels(days, metrics) {
   }
 
   return labels;
+}
+
+function groupDaysIntoWeeks(days) {
+  const weekOrder = [];
+  const weekMap = new Map();
+
+  for (const day of days) {
+    const weekStart = startOfWeek(day.date);
+    if (!weekMap.has(weekStart)) {
+      weekMap.set(weekStart, []);
+      weekOrder.push(weekStart);
+    }
+
+    weekMap.get(weekStart).push({
+      date: day.date,
+      weekday: day.weekday,
+      contributionCount: day.contributionCount,
+    });
+  }
+
+  return weekOrder.map((weekStart) => {
+    const contributionDays = weekMap
+      .get(weekStart)
+      .slice()
+      .sort((left, right) => left.weekday - right.weekday);
+
+    return { contributionDays };
+  });
+}
+
+function startOfWeek(dateText) {
+  const date = new Date(`${dateText}T00:00:00Z`);
+  const day = date.getUTCDay();
+  date.setUTCDate(date.getUTCDate() - day);
+  return formatDateForQuery(date);
+}
+
+function formatDateForQuery(date) {
+  return date.toISOString().slice(0, 10);
 }
 
 function formatDate(dateValue) {

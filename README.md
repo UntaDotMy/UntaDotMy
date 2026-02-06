@@ -22,25 +22,25 @@
 
 ## 📊 GitHub Analytics
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=untadotmy&show_icons=true&hide_border=true&theme=github_dark&count_private=true&include_all_commits=true&card_width=460" height="180" alt="GitHub stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=untadotmy&layout=compact&hide_border=true&theme=github_dark&langs_count=8&card_width=360" height="180" alt="Top languages" />
+  <img src="https://raw.githubusercontent.com/untadotmy/untadotmy/main/profile-summary-card-output/github_dark/1-repos-per-language.svg" alt="Repositories by language summary card" />
+  <img src="https://raw.githubusercontent.com/untadotmy/untadotmy/main/profile-summary-card-output/github_dark/2-most-commit-language.svg" alt="Most commit language summary card" />
 </div>
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/UntaDotMy/UntaDotMy/main/profile-summary-card-output/github_dark/0-profile-details.svg" alt="Profile details summary card" />
+  <img src="https://raw.githubusercontent.com/untadotmy/untadotmy/main/profile-summary-card-output/github_dark/0-profile-details.svg" alt="Profile details summary card" />
 </div>
 <div align="center">
-  <img src="https://raw.githubusercontent.com/UntaDotMy/UntaDotMy/main/profile-summary-card-output/github_dark/3-stats.svg" alt="Contribution stats summary card" />
-  <img src="https://raw.githubusercontent.com/UntaDotMy/UntaDotMy/main/profile-summary-card-output/github_dark/4-productive-time.svg" alt="Productive time summary card" />
+  <img src="https://raw.githubusercontent.com/untadotmy/untadotmy/main/profile-summary-card-output/github_dark/3-stats.svg" alt="Contribution stats summary card" />
+  <img src="https://raw.githubusercontent.com/untadotmy/untadotmy/main/profile-summary-card-output/github_dark/4-productive-time.svg" alt="Productive time summary card" />
 </div>
 
 ## 🤖 AI Contribution Robot
 <p align="center">
-  <a href="https://raw.githubusercontent.com/UntaDotMy/UntaDotMy/output/github-contribution-grid-robot-dark.svg">
+  <a href="https://raw.githubusercontent.com/untadotmy/untadotmy/output/github-contribution-grid-robot-dark.svg">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/UntaDotMy/UntaDotMy/output/github-contribution-grid-robot-dark.svg" />
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/UntaDotMy/UntaDotMy/output/github-contribution-grid-robot.svg" />
-      <img src="https://raw.githubusercontent.com/UntaDotMy/UntaDotMy/output/github-contribution-grid-robot.svg" alt="AI robot contribution scanner animation" />
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/untadotmy/untadotmy/output/github-contribution-grid-robot-dark.svg" />
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/untadotmy/untadotmy/output/github-contribution-grid-robot.svg" />
+      <img src="https://raw.githubusercontent.com/untadotmy/untadotmy/output/github-contribution-grid-robot.svg" alt="AI robot contribution scanner animation" />
     </picture>
   </a>
 </p>

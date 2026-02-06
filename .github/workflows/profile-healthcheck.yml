@@ -1,0 +1,78 @@
+name: Validate Profile README Assets
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "README.md"
+      - ".github/workflows/profile-healthcheck.yml"
+      - ".github/workflows/activity-graph.yml"
+      - ".github/workflows/snake.yml"
+      - "scripts/generate-ai-contribution-robot.js"
+  pull_request:
+    paths:
+      - "README.md"
+      - ".github/workflows/profile-healthcheck.yml"
+      - ".github/workflows/activity-graph.yml"
+      - ".github/workflows/snake.yml"
+      - "scripts/generate-ai-contribution-robot.js"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-profile-readme-assets-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate README and robot generation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Validate README does not use unstable stats endpoint
+        run: |
+          set -euo pipefail
+          if grep -q "github-readme-stats.vercel.app" README.md; then
+            echo "README still uses github-readme-stats.vercel.app. Use generated summary cards instead."
+            exit 1
+          fi
+
+      - name: Validate required summary card assets exist
+        run: |
+          set -euo pipefail
+          test -s profile-summary-card-output/github_dark/0-profile-details.svg
+          test -s profile-summary-card-output/github_dark/1-repos-per-language.svg
+          test -s profile-summary-card-output/github_dark/2-most-commit-language.svg
+          test -s profile-summary-card-output/github_dark/3-stats.svg
+          test -s profile-summary-card-output/github_dark/4-productive-time.svg
+
+      - name: Validate robot generator syntax
+        run: node --check scripts/generate-ai-contribution-robot.js
+
+      - name: Smoke test robot generation
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_USERNAME: ${{ github.repository_owner }}
+          OUTPUT_DIR: /tmp/robot-dist
+        run: |
+          set -euo pipefail
+          node scripts/generate-ai-contribution-robot.js
+          test -s /tmp/robot-dist/github-contribution-grid-robot.svg
+          test -s /tmp/robot-dist/github-contribution-grid-robot-dark.svg
+
+      - name: Validate robot URLs in README
+        run: |
+          set -euo pipefail
+          grep -q "raw.githubusercontent.com/untadotmy/untadotmy/output/github-contribution-grid-robot.svg" README.md
+          grep -q "raw.githubusercontent.com/untadotmy/untadotmy/output/github-contribution-grid-robot-dark.svg" README.md

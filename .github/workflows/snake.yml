@@ -1,6 +1,13 @@
 name: Generate AI Contribution Robot
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/snake.yml"
+      - "scripts/generate-ai-contribution-robot.js"
+      - "README.md"
   schedule:
     - cron: "43 */6 * * *"
   workflow_dispatch:
@@ -24,13 +31,19 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version: 22
 
       - name: Generate AI Robot SVGs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROFILE_USERNAME: ${{ github.repository_owner }}
         run: node scripts/generate-ai-contribution-robot.js
+
+      - name: Verify generated artifacts
+        run: |
+          set -euo pipefail
+          test -s dist/github-contribution-grid-robot.svg
+          test -s dist/github-contribution-grid-robot-dark.svg
 
       - name: Publish to output branch
         uses: peaceiris/actions-gh-pages@v4
@@ -43,3 +56,27 @@ jobs:
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
           commit_message: "🤖 Update AI contribution robot"
+
+      - name: Validate published robot URLs
+        env:
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          for file in github-contribution-grid-robot.svg github-contribution-grid-robot-dark.svg; do
+            url="https://raw.githubusercontent.com/${REPOSITORY}/output/${file}"
+            is_ok=0
+            for attempt in $(seq 1 15); do
+              status_code="$(curl -L -s -o /dev/null -w "%{http_code}" "${url}")"
+              if [ "${status_code}" = "200" ]; then
+                is_ok=1
+                echo "OK: ${url}"
+                break
+              fi
+              echo "Attempt ${attempt}: ${url} => HTTP ${status_code}"
+              sleep 4
+            done
+            if [ "${is_ok}" -ne 1 ]; then
+              echo "ERROR: Published robot asset is unavailable: ${url}"
+              exit 1
+            fi
+          done
